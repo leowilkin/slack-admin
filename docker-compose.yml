@@ -3,8 +3,8 @@ version: '3.8'
 services:
   slack-tools:
     build: .
-    ports:
-      - "${PORT:-3000}:3000"
+    expose:
+      - "3000"
     environment:
       - SLACK_CLIENT_ID=${SLACK_CLIENT_ID}
       - SLACK_CLIENT_SECRET=${SLACK_CLIENT_SECRET}

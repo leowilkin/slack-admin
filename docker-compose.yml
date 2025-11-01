@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  slack-tools:
+    build: .
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - SLACK_CLIENT_ID=${SLACK_CLIENT_ID}
+      - SLACK_CLIENT_SECRET=${SLACK_CLIENT_SECRET}
+      - MANAGER_FIELD_ID=${MANAGER_FIELD_ID}
+      - SESSION_SECRET=${SESSION_SECRET}
+      - PORT=3000
+      - REDIRECT_URI=${REDIRECT_URI}
+      - NODE_ENV=production
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

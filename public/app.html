@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manager Settings</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Manager Settings</h1>
+      <a href="/logout" class="logout-btn">Logout</a>
+    </div>
+
+    <div class="profile-section" id="userProfile">
+      <div class="loading">Loading your profile...</div>
+    </div>
+
+    <div class="profile-fields-section">
+      <h2>Edit Profile Fields</h2>
+      <div id="profileFields" class="profile-fields">
+        <div class="loading">Loading profile fields...</div>
+      </div>
+    </div>
+
+    <div class="manager-section">
+      <h2>Managers</h2>
+      <div id="currentManagers" class="current-managers"></div>
+      <h3>Add Manager</h3>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Enter Slack User ID (e.g., U07BLJ1MBEE)">
+      </div>
+      <div class="users-list" id="usersList">
+        <div class="info-message">Enter a Slack User ID to search for a manager</div>
+      </div>
+    </div>
+
+    <div id="confirmModal" class="modal">
+      <div class="modal-content">
+        <h2>Confirm Manager Selection</h2>
+        <p>Do you want to add <strong id="managerName"></strong> as your manager?</p>
+        
+        <div class="profile-preview">
+          <img id="previewImage" src="" alt="">
+          <div class="preview-info">
+            <div class="preview-name" id="previewName"></div>
+            <div class="preview-title" id="previewTitle"></div>
+          </div>
+        </div>
+
+        <div class="mock-profile">
+          <h3>Preview: How it will look</h3>
+          <div class="profile-card">
+            <img id="mockUserImage" src="" alt="">
+            <div class="profile-details">
+              <div class="profile-name" id="mockUserName"></div>
+              <div class="profile-title" id="mockUserTitle"></div>
+              <div class="profile-manager">
+                <span class="label">Manager:</span>
+                <div class="manager-info">
+                  <img id="mockManagerImage" src="" alt="">
+                  <span id="mockManagerName"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button id="cancelBtn" class="btn btn-secondary">Cancel</button>
+          <button id="confirmBtn" class="btn btn-primary">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
